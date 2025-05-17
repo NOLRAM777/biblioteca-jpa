@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             version="2.2">
+
+    <persistence-unit name="biblioteca-jpa" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>com.exemplo.model.Aluno</class>
+        <class>com.exemplo.model.Livro</class>
+        <class>com.exemplo.model.Emprestimo</class>
+
+        <properties>
+            <!-- Configurações de conexão H2 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:biblioteca;DB_CLOSE_DELAY=-1"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <!-- Dialeto do Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- Criação automática de tabelas -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Mostrar SQL no console -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Ativar console do H2 -->
+            <property name="hibernate.h2.console.enabled" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
